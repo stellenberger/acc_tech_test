@@ -11,4 +11,8 @@ public class CountriesApplication {
         public void fetchAllCountries() {
             this.countries = this.countriesClient.getAllCountries();
         }
+
+        public Countries getCountries() {
+            return this.countries;
+        }
 }

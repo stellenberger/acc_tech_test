@@ -36,6 +36,12 @@
             <version>4.12</version> <!-- Use the version of JUnit you prefer -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.12.4</version> <!-- Use the latest version -->
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
