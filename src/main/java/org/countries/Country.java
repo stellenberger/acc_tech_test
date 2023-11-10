@@ -11,7 +11,7 @@ public class Country {
 
     private int area;
     private String region;
-//    private String name;
+    private CountryName name;
     private String cca3;
     private List<String> borders = new ArrayList<>();
 
@@ -47,7 +47,7 @@ public class Country {
         return this.borders;
     }
 
-//    public String getName() {
-//        return this.name;
-//    }
+    public String getName() {
+        return this.name.getCommon();
+    }
 }

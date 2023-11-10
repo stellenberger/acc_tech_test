@@ -1,5 +1,6 @@
 package org.countries;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.countries.enums.Order;
 
 import java.util.List;

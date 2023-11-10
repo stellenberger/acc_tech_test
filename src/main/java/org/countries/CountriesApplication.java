@@ -25,8 +25,6 @@ public class CountriesApplication {
         }
 
         public Country asianCountryWithMostBorderingCountriesFromOutsideAsia() {
-            // firstly, fetch all countries in Asia
-            // then, store their cca3 in a list
             List<String> asianCca3 = countries.getAllAsianCca3();
 
             List<Country> asianCountries = countries.getAsianCountries();
@@ -52,10 +50,15 @@ public class CountriesApplication {
                     recordNumberOfBordersOutsideAsia = numberOfBordersWithOutsideAsia;
                 }
             }
-            // this way, when we iterate through all these countries
-            // we can look at their borders
-            // and if any of their borders are not in the list of Asian cca3
-            // then we can increment a counter
+
             return countryWithMostBordersWithOutsideAsia;
+        }
+
+        public void printSortedCountriesByPopulationDensity(Order order) {
+            List<Country> sortedCountries = this.sortByPopulationDensity(order);
+
+            for (Country country : sortedCountries) {
+                System.out.println(country.getName() + " " + country.getPopulationDensity());
+            }
         }
 }

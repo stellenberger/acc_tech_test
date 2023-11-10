@@ -10,9 +10,9 @@ public class Main {
 
         countriesApplication.fetchAllCountries();
 
-        countriesApplication.sortByPopulationDensity(Order.DESCENDING);
+        countriesApplication.printSortedCountriesByPopulationDensity(Order.DESCENDING);
 
         Country country = countriesApplication.asianCountryWithMostBorderingCountriesFromOutsideAsia();
-        System.out.println(country.getCca3());
+        System.out.println("The country in asia with the most bordering countries outside of asia is: " + country.getName());
     }
 }
