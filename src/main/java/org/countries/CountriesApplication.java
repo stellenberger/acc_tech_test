@@ -1,5 +1,9 @@
 package org.countries;
 
+import org.countries.enums.Order;
+
+import java.util.List;
+
 public class CountriesApplication {
         CountriesClient countriesClient;
         Countries countries;
@@ -14,5 +18,9 @@ public class CountriesApplication {
 
         public Countries getCountries() {
             return this.countries;
+        }
+
+        public List<Country> sortByPopulationDensity(Order order) {
+            return this.countries.sortByPopulationDensity(order);
         }
 }
