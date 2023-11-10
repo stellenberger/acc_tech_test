@@ -11,5 +11,8 @@ public class Main {
         countriesApplication.fetchAllCountries();
 
         countriesApplication.sortByPopulationDensity(Order.DESCENDING);
+
+        Country country = countriesApplication.asianCountryWithMostBorderingCountriesFromOutsideAsia();
+        System.out.println(country.getCca3());
     }
 }

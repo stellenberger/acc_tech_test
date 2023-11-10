@@ -25,4 +25,13 @@ public class Countries {
         return this.countries.stream().sorted(comparator)
                 .collect(Collectors.toList());
     }
+
+    public List<String> getAllAsianCca3() {
+        return getAsianCountries().stream().map(Country::getCca3).collect(Collectors.toList());
+    }
+
+    public List<Country> getAsianCountries() {
+        return countries.stream().filter(country -> country.getRegion().equals("Asia"))
+                .collect(Collectors.toList());
+    }
 }

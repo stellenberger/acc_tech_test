@@ -2,11 +2,18 @@ package org.countries;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Country {
     private int population;
 
     private int area;
+    private String region;
+//    private String name;
+    private String cca3;
+    private List<String> borders = new ArrayList<>();
 
     public int getPopulation() {
         return this.population;
@@ -27,4 +34,20 @@ public class Country {
     public void setArea(int area) {
         this.area = area;
     }
+
+    public String getRegion() {
+        return this.region;
+    }
+
+    public String getCca3() {
+        return this.cca3;
+    }
+
+    public List<String> getBorders() {
+        return this.borders;
+    }
+
+//    public String getName() {
+//        return this.name;
+//    }
 }
