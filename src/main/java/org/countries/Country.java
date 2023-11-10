@@ -4,9 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Country {
-    private String cca2;
+    private int population;
 
-    public String getCca2() {
-        return cca2;
+    private int area;
+
+    public int getPopulation() {
+        return this.population;
+    }
+
+    public int getPopulationDensity() {
+        return this.population / this.area;
     }
 }

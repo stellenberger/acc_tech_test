@@ -13,9 +13,11 @@ import java.util.List;
 import org.countries.*;
 
 public class CountriesClient {
-    public Countries get(String apiUrl) {
+    String apiURL = "https://restcountries.com/v3.1/all";
+
+    public Countries getAllCountries() {
         try {
-            URL url = new URL(apiUrl);
+            URL url = new URL(apiURL);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
