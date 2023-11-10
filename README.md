@@ -10,7 +10,7 @@ If you'd like to compile your own version of this application, you can do so wit
 mvn clean install
 ```
 
-However, the program is already compiled for you, and all you need to do to run it is, so use the command below:
+To run the compiled application, run this command from the root directory of this folder:
 
 ```bash
 java -cp target/accenture_tech_test_2023-1.0-SNAPSHOT.jar org.countries.Main 
