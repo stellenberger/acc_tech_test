@@ -1,7 +1,5 @@
-import org.countries.Countries;
-import org.countries.CountriesApplication;
-import org.countries.CountriesClient;
-import org.countries.Country;
+import org.countries.*;
+import org.countries.enums.Order;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -30,26 +28,90 @@ public class CountriesApplicationTest {
 
         assertEquals(3, countries.getCountries().size());
     }
+    @Test
+    public void testSortByPopulationDensity() {
+        CountriesApplication countriesApplication = new CountriesApplication(countriesClient);
+        countriesApplication.fetchAllCountries();
+
+        List<Country> sortedByPopulationDensity = countriesApplication.sortByPopulationDensity(Order.DESCENDING);
+
+        assertEquals("South Korea", sortedByPopulationDensity.get(0).getName());
+        assertEquals("Turkey", sortedByPopulationDensity.get(1).getName());
+        assertEquals("Germany", sortedByPopulationDensity.get(2).getName());
+    }
+
+    @Test
+    public void testAsianCountryWithMostBorderingCountriesFromOutsideAsia() {
+        CountriesApplication countriesApplication = new CountriesApplication(countriesClient);
+        countriesApplication.fetchAllCountries();
+
+        Country countryWithMostBordersOutsideAsia = countriesApplication.asianCountryWithMostBorderingCountriesFromOutsideAsia();
+
+        assertEquals("Turkey", countryWithMostBordersOutsideAsia.getName());
+    }
 
     @Before
     public void setUpCountries() {
-        Country country1 = new Country();
-        country1.setPopulation(200);
-        country1.setArea(50);
+        CountryName turkeyName = new CountryName();
+        turkeyName.setCommon("Turkey");
 
-        Country country2 = new Country();
-        country2.setPopulation(300);
-        country2.setArea(120);
+        Country turkey = new Country();
+        turkey.setPopulation(200);
+        turkey.setArea(50);
+        turkey.setRegion("Asia");
+        turkey.setName(turkeyName);
+        turkey.setCca3("TUR");
+        turkey.setBorders(new ArrayList() {{
+            add("ARM");
+            add("AZE");
+            add("BGR");
+            add("GEO");
+            add("GRC");
+            add("IRN");
+            add("IRQ");
+            add("SYR");
+        }});
+        // dp of 4
 
-        Country country3 = new Country();
-        country3.setPopulation(1000);
-        country3.setArea(200);
+        CountryName germanyName = new CountryName();
+        germanyName.setCommon("Germany");
+        Country germany = new Country();
+        germany.setPopulation(300);
+        germany.setArea(120);
+        germany.setRegion("Europe");
+        germany.setName(germanyName);
+        germany.setCca3("DEU");
+        germany.setBorders(new ArrayList() {{
+            add("AUT");
+            add("BEL");
+            add("CZE");
+            add("DNK");
+            add("FRA");
+            add("LUX");
+            add("NLD");
+            add("POL");
+            add("CHE");
+        }});
+        // dp of 2.5
+
+        CountryName southKoreaName = new CountryName();
+        southKoreaName.setCommon("South Korea");
+        Country southKorea = new Country();
+        southKorea.setPopulation(1000);
+        southKorea.setArea(200);
+        southKorea.setRegion("Asia");
+        southKorea.setName(southKoreaName);
+        southKorea.setCca3("KOR");
+        southKorea.setBorders(new ArrayList() {{
+            add("PRK");
+        }});
+        // dp of 5
 
         List<Country> listOfCountries = new ArrayList<Country>();
 
-        listOfCountries.add(country1);
-        listOfCountries.add(country2);
-        listOfCountries.add(country3);
+        listOfCountries.add(turkey);
+        listOfCountries.add(germany);
+        listOfCountries.add(southKorea);
 
         Countries countries = new Countries();
         countries.setCountries(listOfCountries);

@@ -8,7 +8,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Country {
     private int population;
-
     private int area;
     private String region;
     private CountryName name;
@@ -49,5 +48,21 @@ public class Country {
 
     public String getName() {
         return this.name.getCommon();
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public void setCca3(String cca3) {
+        this.cca3 = cca3;
+    }
+
+    public void setName(CountryName name) {
+        this.name = name;
+    }
+
+    public void setBorders(List<String> borders) {
+        this.borders = borders;
     }
 }

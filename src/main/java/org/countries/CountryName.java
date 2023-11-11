@@ -9,4 +9,7 @@ public class CountryName {
     public String getCommon() {
         return this.common;
     }
+    public void setCommon(String commonName) {
+        this.common = commonName;
+    }
 }
