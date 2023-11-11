@@ -24,7 +24,7 @@ To run the automated test suite, run the following command from the root directo
 mvn test
 ```
 
-## Documentation
+## Notes
 
 Thank you for taking the time to review my application and tech test.
 
